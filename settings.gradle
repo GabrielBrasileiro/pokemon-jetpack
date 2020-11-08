@@ -1,0 +1,6 @@
+include ':main:domain'
+include ':main:presentation'
+include ':main:data'
+include ':app'
+
+rootProject.name = "pokemon-jetpack"
