@@ -1,3 +1,5 @@
+include ':kod:core'
+include ':remote'
 include ':main:domain'
 include ':main:presentation'
 include ':main:data'
