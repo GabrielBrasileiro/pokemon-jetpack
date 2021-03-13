@@ -1,14 +1,13 @@
 package com.universodoandroid.pokemonjetpack.main.domain.di
 
-import com.universodoandroid.pokemonjetpack.kod.core.loadKod
 import com.universodoandroid.pokemonjetpack.main.domain.usecase.GetPokemonsUseCase
 import com.universodoandroid.pokemonjetpack.main.domain.usecase.GetPokemonsUseCaseImpl
+import com.universodoandroid.pokemonjetpack.shared.koin.KoinModule
+import org.koin.dsl.module
 
-object MainDomainKod {
+class MainDomainModule : KoinModule {
 
-    fun load() {
-        loadKod {
-            factory<GetPokemonsUseCase> { GetPokemonsUseCaseImpl(get()) }
-        }
+    override val module = module {
+        factory<GetPokemonsUseCase> { GetPokemonsUseCaseImpl(get()) }
     }
 }

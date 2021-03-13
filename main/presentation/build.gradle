@@ -35,12 +35,19 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
-    implementation "com.mvvmredux:viewmodel:$mvvm_redux_version"
+    implementation "com.mvvmredux:core:$mvvm_redux_version"
+    implementation "com.mvvmredux:ext:$mvvm_redux_version"
 
-    implementation project(":kod:core")
-    implementation project(":main:data")
+    // Koin
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+
     implementation project(":main:domain")
+    implementation project(":shared")
+    implementation project(":navigation")
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

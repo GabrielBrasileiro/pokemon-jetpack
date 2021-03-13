@@ -1,34 +1,42 @@
 package com.universodoandroid.pokemonjetpack.main.presentation
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.mvvmredux.viewmodel.getViewModel
-import com.universodoandroid.pokemonjetpack.kod.core.KodCore
-import com.universodoandroid.pokemonjetpack.main.data.di.MainDataKod
-import com.universodoandroid.pokemonjetpack.main.domain.di.MainDomainKod
-import kotlinx.coroutines.flow.collect
+import com.mvvmredux.ext.onEvent
+import com.mvvmredux.ext.onStateChanged
+import com.universodoandroid.pokemonjetpack.main.presentation.reducer.PokemonsEvent
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PokemonsActivity : AppCompatActivity() {
+class PokemonsActivity : AppCompatActivity(R.layout.pokemons_activity) {
 
-    private val viewModel by getViewModel { PokemonsViewModel(KodCore.get()) }
+    private val viewModel by viewModel<PokemonsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        MainDomainKod.load()
-        MainDataKod.load()
+        setupStateListener()
+        setupEventListener()
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.getPokemonsState().collect {
-                Toast.makeText(this@PokemonsActivity, it.joinToString(), Toast.LENGTH_SHORT).show()
+        findViewById<Button>(R.id.button).setOnClickListener { viewModel.showInStart() }
+    }
+
+    private fun setupStateListener() {
+        onStateChanged(viewModel) {
+            showToast(it.toString())
+        }
+    }
+
+    private fun setupEventListener() {
+        onEvent(viewModel) {
+            when (it) {
+                is PokemonsEvent.ShowInStart -> showToast("Rotate")
             }
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
+    private fun showToast(str: String) {
+        Toast.makeText(this@PokemonsActivity, str, Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,14 +1,13 @@
 package com.universodoandroid.pokemonjetpack.main.data.di
 
-import com.universodoandroid.pokemonjetpack.kod.core.loadKod
 import com.universodoandroid.pokemonjetpack.main.data.repository.PokemonsRepositoryImpl
 import com.universodoandroid.pokemonjetpack.main.domain.repository.PokemonsRepository
+import com.universodoandroid.pokemonjetpack.shared.koin.KoinModule
+import org.koin.dsl.module
 
-object MainDataKod {
+class MainDataModule : KoinModule {
 
-    fun load() {
-        loadKod {
-            factory<PokemonsRepository> { PokemonsRepositoryImpl() }
-        }
+    override val module = module {
+        factory<PokemonsRepository> { PokemonsRepositoryImpl() }
     }
 }

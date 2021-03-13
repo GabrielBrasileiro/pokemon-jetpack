@@ -6,6 +6,7 @@ buildscript {
         mvvm_redux_version = '1.0.2'
         coroutines_version = '1.4.1'
         lifecycle_version = '2.2.0'
+        koin_version = '2.2.1'
     }
     repositories {
         google()

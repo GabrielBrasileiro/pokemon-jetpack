@@ -1,8 +1,9 @@
-include ':kod:core'
-include ':remote'
-include ':main:domain'
-include ':main:presentation'
-include ':main:data'
-include ':app'
+include ':remote',
+        ':navigation',
+        ':shared',
+        ':main:domain',
+        ':main:presentation',
+        ':main:data',
+        ':app'
 
 rootProject.name = "pokemon-jetpack"
