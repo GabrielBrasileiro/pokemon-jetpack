@@ -6,6 +6,9 @@ import com.universodoandroid.pokemonjetpack.main.domain.repository.PokemonsRepos
 internal class PokemonsRepositoryImpl : PokemonsRepository {
 
     override suspend fun getPokemons(): List<Pokemon> {
-        return listOf(Pokemon("0", "A"), Pokemon("1", "B"))
+        return listOf(
+            Pokemon("0", "Pikachu"),
+            Pokemon("1", "Sharizard"),
+        )
     }
 }

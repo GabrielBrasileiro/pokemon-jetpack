@@ -1,9 +1,9 @@
 package com.universodoandroid.pokemonjetpack.main.presentation.di
 
 import com.mvvmredux.core.livedata.SingleLiveEvent
-import com.universodoandroid.pokemonjetpack.main.presentation.PokemonsViewModel
+import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.PokemonsViewModel
 import com.universodoandroid.pokemonjetpack.main.presentation.navigation.MainNavigationImpl
-import com.universodoandroid.pokemonjetpack.main.presentation.reducer.PokemonsReducer
+import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer.PokemonsReducer
 import com.universodoandroid.pokemonjetpack.shared.koin.KoinModule
 import com.universodoandroid.pokemonsjetpack.navigation.main.MainNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel

@@ -1,37 +1,35 @@
 package com.universodoandroid.pokemonjetpack.main.presentation
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.MaterialTheme
 import com.mvvmredux.ext.onEvent
-import com.mvvmredux.ext.onStateChanged
-import com.universodoandroid.pokemonjetpack.main.presentation.reducer.PokemonsEvent
+import com.universodoandroid.pokemonjetpack.main.presentation.compose.PokemonsList
+import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.PokemonsViewModel
+import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer.PokemonsEvent
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PokemonsActivity : AppCompatActivity(R.layout.pokemons_activity) {
+internal class PokemonsActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<PokemonsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setupStateListener()
-        setupEventListener()
-
-        findViewById<Button>(R.id.button).setOnClickListener { viewModel.showInStart() }
-    }
-
-    private fun setupStateListener() {
-        onStateChanged(viewModel) {
-            showToast(it.toString())
+        setContent {
+            MaterialTheme {
+                PokemonsList(viewModel)
+            }
         }
+        setupEventListener()
     }
 
     private fun setupEventListener() {
-        onEvent(viewModel) {
-            when (it) {
-                is PokemonsEvent.ShowInStart -> showToast("Rotate")
+        onEvent(viewModel) { event ->
+            when (event) {
+                is PokemonsEvent.OpenDetails -> showToast("Open details with id: ${event.id}")
+                is PokemonsEvent.ShowInStart -> showToast("Show in start")
             }
         }
     }

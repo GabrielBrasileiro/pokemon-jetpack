@@ -1,4 +1,4 @@
-package com.universodoandroid.pokemonjetpack.main.presentation.reducer
+package com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer
 
 import com.mvvmredux.core.reducer.ReducerScope
 
