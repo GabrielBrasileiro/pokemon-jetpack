@@ -9,6 +9,8 @@ import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer.
 import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer.PokemonsState
 import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer.PokemonsStateEvent
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -25,10 +27,13 @@ class PokemonsViewModel(
     private fun loadPokemons() {
         viewModelScope.launch {
             try {
-                val pokemons = getPokemonsUseCase.invoke()
-                updateTo(PokemonsStateEvent.ShowPokemons(pokemons))
+                getPokemonsUseCase.invoke()
+                    .flowOn(Dispatchers.IO)
+                    .collect {
+                        updateTo(PokemonsStateEvent.ShowPokemons(it))
+                    }
             } catch (e: Exception) {
-
+                print(e.message)
             }
         }
     }

@@ -48,6 +48,7 @@ dependencies {
     implementation project(":main:data")
     implementation project(":shared")
     implementation project(":navigation")
+    implementation project(":remote")
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     testImplementation 'junit:junit:4.12'

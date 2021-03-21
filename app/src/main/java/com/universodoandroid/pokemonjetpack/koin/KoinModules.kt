@@ -1,7 +1,5 @@
-package com.universodoandroid.pokemonjetpack
+package com.universodoandroid.pokemonjetpack.koin
 
-import android.app.Application
-import com.universodoandroid.pokemonjetpack.koin.KoinModules
 import com.universodoandroid.pokemonjetpack.main.data.di.MainDataModule
 import com.universodoandroid.pokemonjetpack.main.domain.di.MainDomainModule
 import com.universodoandroid.pokemonjetpack.main.presentation.di.MainPresentationModule
@@ -9,18 +7,20 @@ import com.universodoandroid.pokemonjetpack.remote.di.RemoteModule
 import com.universodoandroid.pokemonjetpack.shared.koin.KoinModule
 import com.universodoandroid.pokemonjetpack.shared.koin.load
 import com.universodoandroid.pokemonjetpack.start.StartModule
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
 
-@Suppress("Unused")
-class PokemonJetpackApplication : Application() {
+internal class KoinModules {
 
-    override fun onCreate() {
-        super.onCreate()
+    fun startKoinModules() {
+        loadModules(
+            StartModule(),
+            MainDataModule(),
+            MainDomainModule(),
+            MainPresentationModule(),
+            RemoteModule(),
+        )
+    }
 
-        startKoin {
-            androidContext(this@PokemonJetpackApplication)
-        }
-        KoinModules().startKoinModules()
+    private fun <T : KoinModule> loadModules(vararg modules: T) {
+        modules.forEach { it.load() }
     }
 }

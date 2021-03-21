@@ -80,7 +80,6 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.constraintlayout:constraintlayout-compose:$compose_constraint_layout_version"
 
-
     // Compose UI Tests
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 

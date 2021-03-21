@@ -1,7 +1,8 @@
 package com.universodoandroid.pokemonjetpack.main.domain.usecase
 
 import com.universodoandroid.pokemonjetpack.main.domain.entity.Pokemon
+import kotlinx.coroutines.flow.Flow
 
 interface GetPokemonsUseCase {
-    suspend operator fun invoke(): List<Pokemon>
+    operator fun invoke(): Flow<List<Pokemon>>
 }
