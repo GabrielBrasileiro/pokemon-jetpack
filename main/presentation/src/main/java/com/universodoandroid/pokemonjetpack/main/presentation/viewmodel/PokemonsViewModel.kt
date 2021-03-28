@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PokemonsViewModel(
+internal class PokemonsViewModel(
     event: SingleLiveEvent<PokemonsEvent>,
     reducer: Reducer<PokemonsState, PokemonsStateEvent>,
     private val getPokemonsUseCase: GetPokemonsUseCase

@@ -6,7 +6,7 @@ import com.universodoandroid.pokemonjetpack.remote.interceptor.LogInterceptorImp
 import com.universodoandroid.pokemonjetpack.remote.serializer.FormatterConfigImpl
 import com.universodoandroid.pokemonjetpack.remote.setup.DefaultRequest
 import com.universodoandroid.pokemonjetpack.remote.setup.DefaultRequestImpl
-import com.universodoandroid.pokemonjetpack.shared.koin.KoinModule
+import com.universodoandroid.pokemonjetpack.shared.common.koin.KoinModule
 import org.koin.dsl.module
 
 class RemoteModule : KoinModule {

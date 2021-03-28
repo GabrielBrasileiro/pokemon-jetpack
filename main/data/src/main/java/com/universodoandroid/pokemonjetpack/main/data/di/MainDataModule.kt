@@ -4,7 +4,7 @@ import com.universodoandroid.pokemonjetpack.main.data.remote.PokemonsRemoteDataS
 import com.universodoandroid.pokemonjetpack.main.data.remote.PokemonsRemoteDataSourceImpl
 import com.universodoandroid.pokemonjetpack.main.data.repository.PokemonsRepositoryImpl
 import com.universodoandroid.pokemonjetpack.main.domain.repository.PokemonsRepository
-import com.universodoandroid.pokemonjetpack.shared.koin.KoinModule
+import com.universodoandroid.pokemonjetpack.shared.common.koin.KoinModule
 import org.koin.dsl.module
 
 class MainDataModule : KoinModule {

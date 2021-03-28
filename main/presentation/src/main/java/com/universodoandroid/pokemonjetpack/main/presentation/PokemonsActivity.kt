@@ -7,13 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import com.mvvmredux.ext.onEvent
 import com.universodoandroid.pokemonjetpack.main.presentation.compose.PokemonsList
+import com.universodoandroid.pokemonjetpack.main.presentation.router.PokemonsRouter
 import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.PokemonsViewModel
 import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.reducer.PokemonsEvent
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 internal class PokemonsActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<PokemonsViewModel>()
+    private val router by inject<PokemonsRouter> { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,7 @@ internal class PokemonsActivity : AppCompatActivity() {
     private fun setupEventListener() {
         onEvent(viewModel) { event ->
             when (event) {
-                is PokemonsEvent.OpenDetails -> showToast("Open details with id: ${event.id}")
+                is PokemonsEvent.OpenDetails -> router.startDetails(event.name)
                 is PokemonsEvent.ShowInStart -> showToast("Show in start")
             }
         }

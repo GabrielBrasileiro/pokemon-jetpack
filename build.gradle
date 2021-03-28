@@ -17,13 +17,14 @@ buildscript {
         logging_interception_version = '3.6.0'
         ktor_http_version = '1.5.2'
         ktor_core_version = '1.5.2'
+        app_compat_version = '1.2.0'
     }
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0-alpha09'
+        classpath 'com.android.tools.build:gradle:7.0.0-alpha12'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }

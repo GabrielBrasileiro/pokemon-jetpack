@@ -36,7 +36,7 @@ dependencies {
     implementation "org.koin:koin-core:$koin_version"
 
     implementation project(":main:domain")
-    implementation project(":shared")
+    implementation project(":shared:common")
     implementation project(":remote")
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"

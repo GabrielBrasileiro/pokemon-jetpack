@@ -18,13 +18,13 @@ import com.universodoandroid.pokemonjetpack.main.domain.entity.Pokemon
 import com.universodoandroid.pokemonjetpack.main.presentation.viewmodel.PokemonsViewModel
 
 @Composable
-fun PokemonsList(viewModel: PokemonsViewModel) {
+internal fun PokemonsList(viewModel: PokemonsViewModel) {
     val state by viewModel.getState().observeAsState()
     PokemonComponent(state?.pokemons ?: listOf()) { viewModel.openDetails(it) }
 }
 
 @Composable
-fun PokemonComponent(pokemons: List<Pokemon>, onClick: (id: String) -> Unit) {
+internal fun PokemonComponent(pokemons: List<Pokemon>, onClick: (id: String) -> Unit) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
         items(pokemons) { pokemon ->
             PokemonItem(
@@ -36,7 +36,7 @@ fun PokemonComponent(pokemons: List<Pokemon>, onClick: (id: String) -> Unit) {
 }
 
 @Composable
-fun PokemonItem(pokemon: Pokemon, onClick: (id: String) -> Unit) {
+internal fun PokemonItem(pokemon: Pokemon, onClick: (id: String) -> Unit) {
     Card(
         shape = RoundedCornerShape(4.dp),
         modifier = Modifier
@@ -46,7 +46,7 @@ fun PokemonItem(pokemon: Pokemon, onClick: (id: String) -> Unit) {
                 vertical = 4.dp
             )
             .clickable(
-                onClick = { onClick(pokemon.id) }
+                onClick = { onClick(pokemon.name) }
             ),
     ) {
         Text(
@@ -60,7 +60,7 @@ fun PokemonItem(pokemon: Pokemon, onClick: (id: String) -> Unit) {
 
 @Preview("Pokemons list screen")
 @Composable
-fun PreviewPokemonsList() {
+internal fun PreviewPokemonsList() {
     PokemonComponent(
         listOf(
             Pokemon("0", "Gabriel"),

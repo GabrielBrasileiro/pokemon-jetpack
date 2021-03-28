@@ -13,7 +13,7 @@ internal class PokemonsRepositoryImpl(
     override fun getPokemons(): Flow<List<Pokemon>> {
         return remoteDataSource.getPokemons().map {
             it.pokemons.map { response ->
-                Pokemon(id = response.url, name = response.name)
+                Pokemon(url = response.url, name = response.name)
             }
         }
     }

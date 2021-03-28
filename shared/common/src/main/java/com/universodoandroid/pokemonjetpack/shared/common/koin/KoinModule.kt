@@ -1,4 +1,4 @@
-package com.universodoandroid.pokemonjetpack.shared.koin
+package com.universodoandroid.pokemonjetpack.shared.common.koin
 
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
