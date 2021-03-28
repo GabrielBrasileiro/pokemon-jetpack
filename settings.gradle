@@ -1,6 +1,12 @@
-include ':main:domain'
-include ':main:presentation'
-include ':main:data'
-include ':app'
+include ':remote',
+        ':navigation',
+        ':shared:common',
+        ':main:domain',
+        ':main:presentation',
+        ':main:data',
+        ':datails',
+        ':app'
 
 rootProject.name = "pokemon-jetpack"
+include ':datails:presentation'
+include ':shared:android'
