@@ -2,4 +2,5 @@ apply from: "$rootProject.projectDir/presentation.gradle"
 
 dependencies {
     implementation project(":main:domain")
+    androidTestImplementation(":main:data")
 }

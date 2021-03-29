@@ -47,6 +47,8 @@ dependencies {
     implementation project(":main:domain")
     implementation project(":main:data")
     implementation project(':datails:presentation')
+    implementation project(':datails:domain')
+    implementation project(':datails:data')
     implementation project(":shared:common")
     implementation project(":navigation")
     implementation project(":remote")

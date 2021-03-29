@@ -1,1 +1,5 @@
 apply from: "$rootProject.projectDir/presentation.gradle"
+
+dependencies {
+    implementation project(":datails:domain")
+}

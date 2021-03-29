@@ -1,5 +1,7 @@
 package com.universodoandroid.pokemonjetpack.koin
 
+import com.universodoandroid.pokemonjetpack.details.data.di.DetailsDataModule
+import com.universodoandroid.pokemonjetpack.details.domain.di.DetailsDomainModule
 import com.universodoandroid.pokemonjetpack.details.presentation.di.DetailsModule
 import com.universodoandroid.pokemonjetpack.main.data.di.MainDataModule
 import com.universodoandroid.pokemonjetpack.main.domain.di.MainDomainModule
@@ -17,6 +19,8 @@ internal class KoinModules {
             MainDataModule(),
             MainDomainModule(),
             MainPresentationModule(),
+            DetailsDataModule(),
+            DetailsDomainModule(),
             DetailsModule(),
             RemoteModule(),
         )
